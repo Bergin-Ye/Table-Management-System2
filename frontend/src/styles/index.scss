@@ -1,0 +1,140 @@
+// ============================================================
+// 全局样式入口
+// ============================================================
+
+@use './variables' as *;
+@use './liquid-glass' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-stack;
+  color: $color-text-primary;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $color-canvas;
+  color-scheme: light;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+}
+
+// 细滚动条（Apple 风格）
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(40, 50, 70, 0.18);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(40, 50, 70, 0.3);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+// ============================================================
+// Element Plus 观感微调
+// ============================================================
+
+// 卡片与对话框大圆角 + 柔和阴影
+.el-card,
+.el-dialog {
+  border-radius: $radius-lg;
+  border-color: $color-border;
+  box-shadow: $shadow-card;
+}
+
+.el-dialog {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+}
+
+.el-dialog__title {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+// 按钮
+.el-button {
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.28s $ease-apple;
+}
+.el-button:active {
+  transform: scale(0.97);
+}
+
+// 输入框
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper,
+.el-input-number .el-input__wrapper {
+  border-radius: 10px;
+  transition: box-shadow 0.25s $ease-apple;
+}
+
+// 表格：去掉重边框，浅色发丝线
+.el-table {
+  --el-table-border-color: rgba(20, 24, 36, 0.06);
+  --el-table-header-bg-color: rgba(245, 246, 250, 0.6);
+  --el-table-row-hover-bg-color: rgba(10, 132, 255, 0.05);
+  --el-table-header-text-color: $color-text-secondary;
+  border-radius: $radius-md;
+  font-size: 13px;
+}
+.el-table th.el-table__cell {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.el-table .el-table__cell {
+  padding: 12px 0;
+}
+
+// 消息提示
+.el-message {
+  border-radius: 12px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+// 分页
+.el-pagination {
+  --el-pagination-button-bg-color: transparent;
+  --el-pagination-hover-color: $color-primary;
+}
+
+// 弹窗内小号深色按钮微交互
+.el-button--primary:not(.is-link) {
+  box-shadow: 0 8px 22px rgba(10, 132, 255, 0.32);
+}
+
+// 表单校验红星
+.el-form-item__label::before {
+  font-family: $font-stack;
+}
+
+// 让链接型按钮无边框
+.el-button.is-link {
+  padding: 4px 6px;
+  font-weight: 500;
+}

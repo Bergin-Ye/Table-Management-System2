@@ -1,0 +1,92 @@
+// ============================================================
+// 液体玻璃（Liquid Glass）工具类
+// 网页端对 Apple Liquid Glass 的近似实现：backdrop-filter 毛玻璃
+// + 分层内描边 + 高光 + 柔和扩散阴影。
+// 注意：这是 CSS 近似，非 Apple 官方实现。
+// ============================================================
+
+@use './variables' as *;
+
+// 玻璃卡片：半透明白 + 毛玻璃 + 顶部内高光 + 底部折射
+.glass {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.18)
+    ),
+    rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(22px) saturate(170%);
+  -webkit-backdrop-filter: blur(22px) saturate(170%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.12),
+    0 18px 50px rgba(23, 45, 96, 0.1);
+}
+
+// 玻璃卡片内层高光折射（叠加用，optional）
+.glass::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+}
+
+// 双击缩放即禁用透明度的用户，走实心兜底
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+// 双层嵌套外壳（Doppelrand）：外框 + 内芯，机器加工感
+.shell {
+  padding: 8px;
+  border-radius: calc(#{$radius-lg} + 8px);
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(30px) saturate(160%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  box-shadow: 0 24px 70px rgba(23, 45, 96, 0.18);
+
+  .core {
+    border-radius: $radius-lg;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  }
+}
+
+// 环境背景光斑（fixed、不拦截点击，仅登录页等氛围背景使用）
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      42% 46% at 12% 18%,
+      rgba(10, 132, 255, 0.14),
+      transparent 62%
+    ),
+    radial-gradient(
+      34% 40% at 88% 12%,
+      rgba(94, 186, 255, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      46% 48% at 78% 88%,
+      rgba(10, 132, 255, 0.1),
+      transparent 64%
+    ),
+    radial-gradient(
+      30% 34% at 20% 86%,
+      rgba(160, 205, 255, 0.14),
+      transparent 58%
+    );
+}

@@ -1,0 +1,41 @@
+// ============================================================
+// 设计令牌（Design Tokens）- Apple / 白色 / 液体玻璃
+// ============================================================
+
+// 色彩
+$color-primary: #0a84ff;
+$color-primary-soft: #e5f1ff;
+$color-success: #34c759;
+$color-warning: #ff9f0a;
+$color-danger: #ff3b30;
+
+// 中性色（白色系）
+$color-canvas: #f5f6fa; // 应用底色（极浅冷灰）
+$color-surface: rgba(255, 255, 255, 0.72); // 玻璃卡片
+$color-surface-solid: #ffffff; // 实心白（无 blur 兜底）
+$color-text-primary: #1d1d1f; // Apple 正文黑
+$color-text-secondary: #6e6e73; // 次级灰
+$color-text-tertiary: #a1a1a6; // 三级灰
+$color-border: rgba(20, 24, 36, 0.08); // 发丝线
+$color-border-strong: rgba(20, 24, 36, 0.14);
+
+// 字体
+$font-stack: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei',
+  'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// 圆角
+$radius-lg: 20px;
+$radius-md: 14px;
+$radius-sm: 10px;
+
+// 阴影（柔和扩散，偏蓝调，非纯黑）
+$shadow-card: 0 18px 50px rgba(23, 45, 96, 0.1);
+$shadow-card-hover: 0 24px 64px rgba(23, 45, 96, 0.16);
+$shadow-pop: 0 28px 80px rgba(23, 45, 96, 0.2);
+
+// 过渡曲线（Apple 风格）
+$ease-apple: cubic-bezier(0.32, 0.72, 0, 1);
+
+// 布局
+$sidebar-width: 240px;
+$topbar-height: 64px;

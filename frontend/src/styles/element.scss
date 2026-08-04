@@ -1,0 +1,37 @@
+// ============================================================
+// Element Plus 主题覆盖（Apple 系统色 + 圆角体系）
+// 该文件通过 vite.config.js 的 additionalData 注入每个 SCSS，
+// 覆盖 element-plus/theme-chalk 的默认 SCSS 变量。
+// ============================================================
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #0a84ff,
+    ),
+    'success': (
+      'base': #34c759,
+    ),
+    'warning': (
+      'base': #ff9f0a,
+    ),
+    'danger': (
+      'base': #ff3b30,
+    ),
+    'error': (
+      'base': #ff3b30,
+    ),
+    'info': (
+      'base': #8e8e93,
+    ),
+  ),
+  $border-radius: (
+    'base': 10px,
+    'small': 8px,
+    'round': 20px,
+    'circle': 100%,
+  ),
+  $font-family: (
+    '': '-apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif',
+  ),
+);
