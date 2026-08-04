@@ -18,10 +18,11 @@ public class MetaController {
     private final FieldConfigService fieldConfigService;
     private final MenuService menuService;
 
-    /** 返回单据字段配置（需登录 + 该 docType 权限） */
+    /** 返回单据字段配置（需登录 + 该 docType 权限；未知 docType 返回 404） */
     @GetMapping("/{docType}")
     public ApiResponse<FieldConfig> meta(@PathVariable String docType) {
-        menuService.assertDocPermission(docType);
-        return ApiResponse.ok(fieldConfigService.get(docType));
+        FieldConfig cfg = fieldConfigService.get(docType); // 不存在 → 404
+        menuService.assertDocPermission(docType);          // 存在但无权限 → 403
+        return ApiResponse.ok(cfg);
     }
 }

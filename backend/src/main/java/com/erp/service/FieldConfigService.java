@@ -16,7 +16,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -106,7 +108,9 @@ public class FieldConfigService {
         pool.addAll(cfg.getHeadFields());
         pool.addAll(cfg.getDetailFields());
 
-        Set<FieldDef> used = new HashSet<>();
+        // 用 IdentityHashMap 按对象引用去重：head 与 detail 存在同名同值字段
+        // （如 xsdd「运费」、各仓库字段），值相等但必须是两个不同的列映射目标
+        Set<FieldDef> used = Collections.newSetFromMap(new IdentityHashMap<>());
         Map<Integer, FieldDef> result = new LinkedHashMap<>();
 
         List<Integer> indexes = new ArrayList<>(headMap.keySet());

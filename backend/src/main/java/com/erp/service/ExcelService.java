@@ -149,6 +149,7 @@ public class ExcelService {
         // 监听器把表头/数据行收集到可变容器（匿名类无法改局部变量）
         HeadHolder holder = new HeadHolder();
         List<RowData> rows = new ArrayList<>();
+        validateExcelFile(file);
         try (InputStream is = file.getInputStream()) {
             EasyExcel.read(is)
                     .headRowNumber(1)
@@ -171,11 +172,36 @@ public class ExcelService {
                     })
                     .sheet()
                     .doRead();
-        } catch (IOException e) {
-            throw BizException.badRequest("读取文件失败，请确认是 Excel 文件");
+        } catch (BizException e) {
+            throw e;
+        } catch (Exception e) {
+            throw BizException.badRequest("不是有效的 Excel 文件");
         }
 
         return processRows(cfg, holder.map, rows);
+    }
+
+    /** 前置校验：扩展名 + 文件头魔数，非 Excel 直接报错而非静默 0 行 */
+    private void validateExcelFile(MultipartFile file) {
+        String name = file.getOriginalFilename() == null ? "" : file.getOriginalFilename().toLowerCase();
+        if (!name.endsWith(".xls") && !name.endsWith(".xlsx") && !name.endsWith(".xlsm")) {
+            throw BizException.badRequest("只支持 .xls/.xlsx 的 Excel 文件");
+        }
+        try (InputStream is = file.getInputStream()) {
+            byte[] head = new byte[8];
+            int read = is.read(head);
+            boolean isXlsx = read >= 4 && head[0] == 'P' && head[1] == 'K'
+                    && head[2] == 3 && head[3] == 4;                                  // PK\x03\x04 (zip/xlsx)
+            boolean isXls = read >= 8 && (head[0] & 0xFF) == 0xD0 && (head[1] & 0xFF) == 0xCF
+                    && (head[2] & 0xFF) == 0x11 && (head[3] & 0xFF) == 0xE0;          // OLE2 (xls)
+            if (!isXlsx && !isXls) {
+                throw BizException.badRequest("文件内容不是有效的 Excel 文件");
+            }
+        } catch (BizException e) {
+            throw e;
+        } catch (IOException e) {
+            throw BizException.badRequest("读取文件失败");
+        }
     }
 
     private ImportResult processRows(FieldConfig cfg, Map<Integer, String> headMap,
