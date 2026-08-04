@@ -1,0 +1,305 @@
+{
+ "docType": "cgsq",
+ "name": "采购申请",
+ "menu": "采购管理",
+ "headFields": [
+  {
+   "key": "日期",
+   "label": "日期",
+   "excelLabel": "日期",
+   "type": "date",
+   "required": true
+  },
+  {
+   "key": "使用部门",
+   "label": "使用部门",
+   "excelLabel": "使用部门",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "业务类型",
+   "label": "业务类型",
+   "excelLabel": "业务类型",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "编号",
+   "label": "编号",
+   "excelLabel": "编    号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "备注",
+   "label": "备注",
+   "excelLabel": "备注",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "申请人",
+   "label": "申请人",
+   "excelLabel": "申请人",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "审批人",
+   "label": "审批人",
+   "excelLabel": "审批人",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "审批日期",
+   "label": "审批日期",
+   "excelLabel": "审批日期",
+   "type": "date",
+   "required": false
+  },
+  {
+   "key": "制单",
+   "label": "制单",
+   "excelLabel": "制单",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "一审",
+   "label": "一审",
+   "excelLabel": "一审",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "一审日期",
+   "label": "一审日期",
+   "excelLabel": "一审日期",
+   "type": "date",
+   "required": false
+  },
+  {
+   "key": "打印次数",
+   "label": "打印次数",
+   "excelLabel": "打印次数",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "业务类别",
+   "label": "业务类别",
+   "excelLabel": "业务类别",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "交货地",
+   "label": "交货地",
+   "excelLabel": "交货地",
+   "type": "text",
+   "required": false
+  }
+ ],
+ "detailFields": [
+  {
+   "key": "行号",
+   "label": "行号",
+   "excelLabel": "行号",
+   "type": "int",
+   "required": false
+  },
+  {
+   "key": "物料代码",
+   "label": "物料代码",
+   "excelLabel": "物料代码",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "条形码",
+   "label": "条形码",
+   "excelLabel": "条形码",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "物料名称",
+   "label": "物料名称",
+   "excelLabel": "物料名称",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "规格型号",
+   "label": "规格型号",
+   "excelLabel": "规格型号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "辅助属性",
+   "label": "辅助属性",
+   "excelLabel": "辅助属性",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "单位",
+   "label": "单位",
+   "excelLabel": "单位",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "数量",
+   "label": "数量",
+   "excelLabel": "数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "建议采购日期",
+   "label": "建议采购日期",
+   "excelLabel": "建议采购日期",
+   "type": "date",
+   "required": false
+  },
+  {
+   "key": "客户BOM",
+   "label": "客户BOM",
+   "excelLabel": "客户BOM",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "用途",
+   "label": "用途",
+   "excelLabel": "用途",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "基本单位名称",
+   "label": "基本单位名称",
+   "excelLabel": "基本单位名称",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "基本单位数量",
+   "label": "基本单位数量",
+   "excelLabel": "基本单位数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "供应商",
+   "label": "供应商",
+   "excelLabel": "供应商",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "提前期",
+   "label": "提前期",
+   "excelLabel": "提前期",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "到货日期",
+   "label": "到货日期",
+   "excelLabel": "到货日期",
+   "type": "date",
+   "required": false
+  },
+  {
+   "key": "计划订单号",
+   "label": "计划订单号",
+   "excelLabel": "计划订单号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "辅助单位",
+   "label": "辅助单位",
+   "excelLabel": "辅助单位",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "换算率",
+   "label": "换算率",
+   "excelLabel": "换算率",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "辅助数量",
+   "label": "辅助数量",
+   "excelLabel": "辅助数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "源单单号",
+   "label": "源单单号",
+   "excelLabel": "源单单号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "综合单位数量",
+   "label": "综合单位数量",
+   "excelLabel": "综合单位数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "客户料号",
+   "label": "客户料号",
+   "excelLabel": "客户料号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "编号",
+   "label": "编号",
+   "excelLabel": "编号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "问题描述",
+   "label": "问题描述",
+   "excelLabel": "问题描述",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "行备注",
+   "label": "行备注",
+   "excelLabel": "行备注",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "机型",
+   "label": "机型",
+   "excelLabel": "机型",
+   "type": "text",
+   "required": false
+  }
+ ],
+ "defaultColumns": [
+  "编号",
+  "日期",
+  "使用部门",
+  "业务类型",
+  "申请人",
+  "审批人",
+  "备注"
+ ]
+}

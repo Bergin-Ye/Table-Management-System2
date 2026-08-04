@@ -1,0 +1,16 @@
+# 依赖与构建产物
+node_modules/
+dist/
+target/
+*.class
+
+# 工具/技能目录（非项目代码）
+.skills/
+.agents/
+.idea/
+.vscode/
+
+# 其他
+*.log
+.DS_Store
+*.iml
