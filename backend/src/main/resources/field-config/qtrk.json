@@ -1,0 +1,361 @@
+{
+ "docType": "qtrk",
+ "name": "其他入库",
+ "menu": "库存管理",
+ "headFields": [
+  {
+   "key": "日期",
+   "label": "日期",
+   "excelLabel": "日期",
+   "type": "date",
+   "required": true
+  },
+  {
+   "key": "供应商",
+   "label": "供应商",
+   "excelLabel": "供应商",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "编号",
+   "label": "编号",
+   "excelLabel": "编    号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "收货仓库",
+   "label": "收货仓库",
+   "excelLabel": "收货仓库",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "审核",
+   "label": "审核",
+   "excelLabel": "审核",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "审核日期",
+   "label": "审核日期",
+   "excelLabel": "审核日期",
+   "type": "date",
+   "required": false
+  },
+  {
+   "key": "记账",
+   "label": "记账",
+   "excelLabel": "记账",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "验收",
+   "label": "验收",
+   "excelLabel": "验收",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "保管",
+   "label": "保管",
+   "excelLabel": "保管",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "制单",
+   "label": "制单",
+   "excelLabel": "制单",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "部门",
+   "label": "部门",
+   "excelLabel": "部门",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "入库类型",
+   "label": "入库类型",
+   "excelLabel": "入库类型",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "打印次数",
+   "label": "打印次数",
+   "excelLabel": "打印次数",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "负责人",
+   "label": "负责人",
+   "excelLabel": "负责人",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "业务员",
+   "label": "业务员",
+   "excelLabel": "业务员",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "摘要",
+   "label": "摘要",
+   "excelLabel": "摘要",
+   "type": "text",
+   "required": false
+  }
+ ],
+ "detailFields": [
+  {
+   "key": "行号",
+   "label": "行号",
+   "excelLabel": "行号",
+   "type": "int",
+   "required": false
+  },
+  {
+   "key": "物料代码",
+   "label": "物料代码",
+   "excelLabel": "物料代码",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "条形码",
+   "label": "条形码",
+   "excelLabel": "条形码",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "物料名称",
+   "label": "物料名称",
+   "excelLabel": "物料名称",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "商品类别",
+   "label": "商品类别",
+   "excelLabel": "商品类别",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "商品品牌",
+   "label": "商品品牌",
+   "excelLabel": "商品品牌",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "规格型号",
+   "label": "规格型号",
+   "excelLabel": "规格型号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "辅助属性",
+   "label": "辅助属性",
+   "excelLabel": "辅助属性",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "单位",
+   "label": "单位",
+   "excelLabel": "单位",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "实收数量",
+   "label": "实收数量",
+   "excelLabel": "实收数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "单价",
+   "label": "单价",
+   "excelLabel": "单价",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "金额",
+   "label": "金额",
+   "excelLabel": "金额",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "批号",
+   "label": "批号",
+   "excelLabel": "批号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "备注",
+   "label": "备注",
+   "excelLabel": "备注",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "基本单位名称",
+   "label": "基本单位名称",
+   "excelLabel": "基本单位名称",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "基本单位实收数量",
+   "label": "基本单位实收数量",
+   "excelLabel": "基本单位实收数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "计划单价",
+   "label": "计划单价",
+   "excelLabel": "计划单价",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "计划价金额",
+   "label": "计划价金额",
+   "excelLabel": "计划价金额",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "生产/采购日期",
+   "label": "生产/采购日期",
+   "excelLabel": "生产/采购日期",
+   "type": "date",
+   "required": false
+  },
+  {
+   "key": "保质期(天)",
+   "label": "保质期(天)",
+   "excelLabel": "保质期(天)",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "有效期至",
+   "label": "有效期至",
+   "excelLabel": "有效期至",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "收货仓库",
+   "label": "收货仓库",
+   "excelLabel": "收货仓库",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "仓位",
+   "label": "仓位",
+   "excelLabel": "仓位",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "对应代码",
+   "label": "对应代码",
+   "excelLabel": "对应代码",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "对应名称",
+   "label": "对应名称",
+   "excelLabel": "对应名称",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "辅助单位",
+   "label": "辅助单位",
+   "excelLabel": "辅助单位",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "换算率",
+   "label": "换算率",
+   "excelLabel": "换算率",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "辅助数量",
+   "label": "辅助数量",
+   "excelLabel": "辅助数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "源单单号",
+   "label": "源单单号",
+   "excelLabel": "源单单号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "订单单号",
+   "label": "订单单号",
+   "excelLabel": "订单单号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "拆卸成本拆分比例(%)",
+   "label": "拆卸成本拆分比例(%)",
+   "excelLabel": "拆卸成本拆分比例(%)",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "综合单位数量",
+   "label": "综合单位数量",
+   "excelLabel": "综合单位数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "机型",
+   "label": "机型",
+   "excelLabel": "机型",
+   "type": "text",
+   "required": false
+  }
+ ],
+ "defaultColumns": [
+  "编号",
+  "日期",
+  "供应商",
+  "收货仓库",
+  "入库类型",
+  "部门",
+  "业务员"
+ ]
+}

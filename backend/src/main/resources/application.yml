@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: erp-backend
+  datasource:
+    url: jdbc:mysql://localhost:3306/erp?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    username: root
+    password: haoyu2026
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 25MB
+  jackson:
+    default-property-inclusion: non_null
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+
+jwt:
+  # HS256 密钥（>=32 字节），仅供开发环境
+  secret: ErpBackend2026!Haoyu@Jwt#SecretKey(>=256bit)-dev-only-change-me
+  expire-hours: 24
+
+logging:
+  level:
+    com.erp: info

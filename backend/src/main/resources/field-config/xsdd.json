@@ -1,0 +1,795 @@
+{
+ "docType": "xsdd",
+ "name": "销售订单",
+ "menu": "销售管理",
+ "headFields": [
+  {
+   "key": "日期",
+   "label": "日期",
+   "excelLabel": "日期",
+   "type": "date",
+   "required": true
+  },
+  {
+   "key": "购货单位",
+   "label": "购货单位",
+   "excelLabel": "购货单位",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "销售方式",
+   "label": "销售方式",
+   "excelLabel": "销售方式",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "编号",
+   "label": "编号",
+   "excelLabel": "编    号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "币别",
+   "label": "币别",
+   "excelLabel": "币    别",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "交货地点",
+   "label": "交货地点",
+   "excelLabel": "交货地点",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "审核",
+   "label": "审核",
+   "excelLabel": "审核",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "审核日期",
+   "label": "审核日期",
+   "excelLabel": "审核日期",
+   "type": "date",
+   "required": false
+  },
+  {
+   "key": "主管",
+   "label": "主管",
+   "excelLabel": "主管",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "部门",
+   "label": "部门",
+   "excelLabel": "部门",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "业务员",
+   "label": "业务员",
+   "excelLabel": "业务员",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "制单",
+   "label": "制单",
+   "excelLabel": "制单",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "结算方式",
+   "label": "结算方式",
+   "excelLabel": "结算方式",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "汇率",
+   "label": "汇率",
+   "excelLabel": "汇    率",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "街道/乡镇",
+   "label": "街道/乡镇",
+   "excelLabel": "街道/乡镇",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "省",
+   "label": "省",
+   "excelLabel": "省",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "区/县",
+   "label": "区/县",
+   "excelLabel": "区/县",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "市",
+   "label": "市",
+   "excelLabel": "市",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "收货地址",
+   "label": "收货地址",
+   "excelLabel": "收货地址",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "收货人",
+   "label": "收货人",
+   "excelLabel": "收货人",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "手机号",
+   "label": "手机号",
+   "excelLabel": "手机号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "结算日期",
+   "label": "结算日期",
+   "excelLabel": "结算日期",
+   "type": "date",
+   "required": false
+  },
+  {
+   "key": "销售范围",
+   "label": "销售范围",
+   "excelLabel": "销售范围",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "版本号",
+   "label": "版本号",
+   "excelLabel": "版本号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "变更日期",
+   "label": "变更日期",
+   "excelLabel": "变更日期",
+   "type": "date",
+   "required": false
+  },
+  {
+   "key": "修改价税合计",
+   "label": "修改价税合计",
+   "excelLabel": "修改价税合计",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "变更人",
+   "label": "变更人",
+   "excelLabel": "变更人",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "变更原因",
+   "label": "变更原因",
+   "excelLabel": "变更原因",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "打印次数",
+   "label": "打印次数",
+   "excelLabel": "打印次数",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "云仓单号",
+   "label": "云仓单号",
+   "excelLabel": "云仓单号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "运费",
+   "label": "运费",
+   "excelLabel": "运费",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "开票类型",
+   "label": "开票类型",
+   "excelLabel": "开票类型",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "下单时间",
+   "label": "下单时间",
+   "excelLabel": "下单时间",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "网上订单号",
+   "label": "网上订单号",
+   "excelLabel": "网上订单号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "现场自提",
+   "label": "现场自提",
+   "excelLabel": "现场自提",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "在线支付收款信息",
+   "label": "在线支付收款信息",
+   "excelLabel": "在线支付收款信息",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "需要发票",
+   "label": "需要发票",
+   "excelLabel": "需要发票",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "自提或配送门店名称",
+   "label": "自提或配送门店名称",
+   "excelLabel": "自提或配送门店名称",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "自提门店ID",
+   "label": "自提门店ID",
+   "excelLabel": "自提门店ID",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "门店自提日期",
+   "label": "门店自提日期",
+   "excelLabel": "门店自提日期",
+   "type": "date",
+   "required": false
+  },
+  {
+   "key": "门店提货码",
+   "label": "门店提货码",
+   "excelLabel": "门店提货码",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "门店零售单编码",
+   "label": "门店零售单编码",
+   "excelLabel": "门店零售单编码",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "门店零售单ID",
+   "label": "门店零售单ID",
+   "excelLabel": "门店零售单ID",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "微信卡券号",
+   "label": "微信卡券号",
+   "excelLabel": "微信卡券号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "微信卡券优惠金额",
+   "label": "微信卡券优惠金额",
+   "excelLabel": "微信卡券优惠金额",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "下单人手机号",
+   "label": "下单人手机号",
+   "excelLabel": "下单人手机号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "本单积分",
+   "label": "本单积分",
+   "excelLabel": "本单积分",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "送货方式ID",
+   "label": "送货方式ID",
+   "excelLabel": "送货方式ID",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "门店自提或配送时间",
+   "label": "门店自提或配送时间",
+   "excelLabel": "门店自提或配送时间",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "公司名称(专用发票)",
+   "label": "公司名称(专用发票)",
+   "excelLabel": "公司名称(专用发票)",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "纳税识别码(专用发票)",
+   "label": "纳税识别码(专用发票)",
+   "excelLabel": "纳税识别码(专用发票)",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "注册地址(专用发票)",
+   "label": "注册地址(专用发票)",
+   "excelLabel": "注册地址(专用发票)",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "电话(专用发票)",
+   "label": "电话(专用发票)",
+   "excelLabel": "电话(专用发票)",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "开户银行(专用发票)",
+   "label": "开户银行(专用发票)",
+   "excelLabel": "开户银行(专用发票)",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "银行账号(专用发票)",
+   "label": "银行账号(专用发票)",
+   "excelLabel": "银行账号(专用发票)",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "业务类别",
+   "label": "业务类别",
+   "excelLabel": "业务类别",
+   "type": "text",
+   "required": false
+  }
+ ],
+ "detailFields": [
+  {
+   "key": "行号",
+   "label": "行号",
+   "excelLabel": "行号",
+   "type": "int",
+   "required": false
+  },
+  {
+   "key": "产品代码",
+   "label": "产品代码",
+   "excelLabel": "产品代码",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "条形码",
+   "label": "条形码",
+   "excelLabel": "条形码",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "产品名称",
+   "label": "产品名称",
+   "excelLabel": "产品名称",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "规格型号",
+   "label": "规格型号",
+   "excelLabel": "规格型号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "辅助属性",
+   "label": "辅助属性",
+   "excelLabel": "辅助属性",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "单位",
+   "label": "单位",
+   "excelLabel": "单位",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "数量",
+   "label": "数量",
+   "excelLabel": "数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "价格政策名称",
+   "label": "价格政策名称",
+   "excelLabel": "价格政策名称",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "单价",
+   "label": "单价",
+   "excelLabel": "单价",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "含税单价",
+   "label": "含税单价",
+   "excelLabel": "含税单价",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "单位折扣额",
+   "label": "单位折扣额",
+   "excelLabel": "单位折扣额",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "折扣率(%)",
+   "label": "折扣率(%)",
+   "excelLabel": "折扣率(%)",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "折扣额",
+   "label": "折扣额",
+   "excelLabel": "折扣额",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "建议交货日期",
+   "label": "建议交货日期",
+   "excelLabel": "建议交货日期",
+   "type": "date",
+   "required": false
+  },
+  {
+   "key": "备注",
+   "label": "备注",
+   "excelLabel": "备注",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "金额",
+   "label": "金额",
+   "excelLabel": "金额",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "实际含税单价",
+   "label": "实际含税单价",
+   "excelLabel": "实际含税单价",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "销项税额",
+   "label": "销项税额",
+   "excelLabel": "销项税额",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "价税合计",
+   "label": "价税合计",
+   "excelLabel": "价税合计",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "基本单位名称",
+   "label": "基本单位名称",
+   "excelLabel": "基本单位名称",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "基本单位数量",
+   "label": "基本单位数量",
+   "excelLabel": "基本单位数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "基本单位关联数量",
+   "label": "基本单位关联数量",
+   "excelLabel": "基本单位关联数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "辅助单位关联数量",
+   "label": "辅助单位关联数量",
+   "excelLabel": "辅助单位关联数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "关联数量",
+   "label": "关联数量",
+   "excelLabel": "关联数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "辅助单位出库数量",
+   "label": "辅助单位出库数量",
+   "excelLabel": "辅助单位出库数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "基本单位出库数量",
+   "label": "基本单位出库数量",
+   "excelLabel": "基本单位出库数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "出库数量",
+   "label": "出库数量",
+   "excelLabel": "出库数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "税率(%)",
+   "label": "税率(%)",
+   "excelLabel": "税率(%)",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "客户BOM",
+   "label": "客户BOM",
+   "excelLabel": "客户BOM",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "成本对象",
+   "label": "成本对象",
+   "excelLabel": "成本对象",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "交货日期",
+   "label": "交货日期",
+   "excelLabel": "交货日期",
+   "type": "date",
+   "required": false
+  },
+  {
+   "key": "是否冲减",
+   "label": "是否冲减",
+   "excelLabel": "是否冲减",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "辅助单位",
+   "label": "辅助单位",
+   "excelLabel": "辅助单位",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "换算率",
+   "label": "换算率",
+   "excelLabel": "换算率",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "辅助数量",
+   "label": "辅助数量",
+   "excelLabel": "辅助数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "源单单号",
+   "label": "源单单号",
+   "excelLabel": "源单单号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "MRP最后计算时间",
+   "label": "MRP最后计算时间",
+   "excelLabel": "MRP最后计算时间",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "开票数量",
+   "label": "开票数量",
+   "excelLabel": "开票数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "辅助单位开票数量",
+   "label": "辅助单位开票数量",
+   "excelLabel": "辅助单位开票数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "基本单位开票数量",
+   "label": "基本单位开票数量",
+   "excelLabel": "基本单位开票数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "基本单位组装数量",
+   "label": "基本单位组装数量",
+   "excelLabel": "基本单位组装数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "辅助单位组装数量",
+   "label": "辅助单位组装数量",
+   "excelLabel": "辅助单位组装数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "组装数量",
+   "label": "组装数量",
+   "excelLabel": "组装数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "店铺库存批次",
+   "label": "店铺库存批次",
+   "excelLabel": "店铺库存批次",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "运费",
+   "label": "运费",
+   "excelLabel": "运费",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "综合单位数量",
+   "label": "综合单位数量",
+   "excelLabel": "综合单位数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "是否退库",
+   "label": "是否退库",
+   "excelLabel": "是否退库",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "退库数量",
+   "label": "退库数量",
+   "excelLabel": "退库数量",
+   "type": "number",
+   "required": false
+  },
+  {
+   "key": "未出库数",
+   "label": "未出库数",
+   "excelLabel": "未出库数",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "辅助单位未出库数",
+   "label": "辅助单位未出库数",
+   "excelLabel": "辅助单位未出库数",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "客户料号",
+   "label": "客户料号",
+   "excelLabel": "客户料号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "客户物料名称",
+   "label": "客户物料名称",
+   "excelLabel": "客户物料名称",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "编号",
+   "label": "编号",
+   "excelLabel": "编号",
+   "type": "text",
+   "required": false
+  },
+  {
+   "key": "问题描述",
+   "label": "问题描述",
+   "excelLabel": "问题描述",
+   "type": "text",
+   "required": false
+  }
+ ],
+ "defaultColumns": [
+  "编号",
+  "日期",
+  "购货单位",
+  "业务员",
+  "销售方式",
+  "结算方式",
+  "审核"
+ ]
+}
