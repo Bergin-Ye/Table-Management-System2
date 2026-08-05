@@ -1,0 +1,149 @@
+{
+  "results": [
+    {
+      "item": "未登录访问单据接口返回 401",
+      "pass": true,
+      "detail": "http=401"
+    },
+    {
+      "item": "未登录访问 userinfo 返回 401",
+      "pass": true,
+      "detail": "http=401"
+    },
+    {
+      "item": "admin userinfo 角色=ADMIN",
+      "pass": true,
+      "detail": "{\"id\": 1, \"username\": \"admin\", \"role\": \"ADMIN\", \"enabled\": true, \"authorities\": [{\"authority\": \"ROLE_ADMIN\"}], \"credentialsNonExpired\": true, \"accountNonExpired\": true, \"accountNonLocked\": true}"
+    },
+    {
+      "item": "user1 userinfo 角色=USER",
+      "pass": true,
+      "detail": "{\"id\": 2, \"username\": \"user1\", \"role\": \"USER\", \"enabled\": true, \"authorities\": [{\"authority\": \"ROLE_USER\"}], \"credentialsNonExpired\": true, \"accountNonExpired\": true, \"accountNonLocked\": true}"
+    },
+    {
+      "item": "admin 菜单含 4 个顶级",
+      "pass": true,
+      "detail": "roots={'库存管理', '系统管理', '采购管理', '销售管理'}"
+    },
+    {
+      "item": "admin 系统管理含子菜单",
+      "pass": true,
+      "detail": "{\"id\": 4, \"name\": \"系统管理\", \"path\": \"/system\", \"children\": [{\"id\": 20, \"name\": \"用户管理\", \"path\": \"/system/user\", \"children\": []}, {\"id\": 21, \"name\": \"角色授权\", \"path\": \"/system/role\", \"children\": []}]}"
+    },
+    {
+      "item": "admin 业务父菜单含单据子菜单",
+      "pass": true,
+      "detail": "[{\"root\": \"销售管理\", \"children\": [\"销售订单\", \"销售出库\"]}, {\"root\": \"采购管理\", \"children\": [\"采购申请\", \"采购订单\"]}, {\"root\": \"库存管理\", \"children\": [\"外购入库\", \"生产领料单\", \"产品入库\", \"其他出库\", \"其他入库单\", \"调拨单\"]}, {\"root\": \"系统管理\", \"children\": [\"用户管理\", \"角色授权\"]}]"
+    },
+    {
+      "item": "user1 菜单不含系统管理",
+      "pass": true,
+      "detail": "roots={'库存管理', '采购管理', '销售管理'}"
+    },
+    {
+      "item": "user1 菜单含 3 个业务顶级",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "item": "user1 访问 /api/user/list → 403",
+      "pass": true,
+      "detail": "http=403"
+    },
+    {
+      "item": "user1 访问 /api/role/menus?role=USER → 403",
+      "pass": true,
+      "detail": "http=403"
+    },
+    {
+      "item": "admin 访问 /api/user/list → 200",
+      "pass": true,
+      "detail": "http=200"
+    },
+    {
+      "item": "user1 访问 /api/meta/cgdd → 200",
+      "pass": true,
+      "detail": "http=200"
+    },
+    {
+      "item": "cgdd 新增/查看/列表/编辑/删除",
+      "pass": true,
+      "detail": "did=11003 detailRows=2 in_list=True upd=True del=True gone=True"
+    },
+    {
+      "item": "cgsq 新增/查看/列表/编辑/删除",
+      "pass": true,
+      "detail": "did=11004 detailRows=2 in_list=True upd=True del=True gone=True"
+    },
+    {
+      "item": "xsdd 新增/查看/列表/编辑/删除",
+      "pass": true,
+      "detail": "did=11005 detailRows=2 in_list=True upd=True del=True gone=True"
+    },
+    {
+      "item": "xsck 新增/查看/列表/编辑/删除",
+      "pass": true,
+      "detail": "did=11006 detailRows=2 in_list=True upd=True del=True gone=True"
+    },
+    {
+      "item": "wgrk 新增/查看/列表/编辑/删除",
+      "pass": true,
+      "detail": "did=11007 detailRows=2 in_list=True upd=True del=True gone=True"
+    },
+    {
+      "item": "scld 新增/查看/列表/编辑/删除",
+      "pass": true,
+      "detail": "did=11008 detailRows=2 in_list=True upd=True del=True gone=True"
+    },
+    {
+      "item": "cprk 新增/查看/列表/编辑/删除",
+      "pass": true,
+      "detail": "did=11009 detailRows=2 in_list=True upd=True del=True gone=True"
+    },
+    {
+      "item": "qtck 新增/查看/列表/编辑/删除",
+      "pass": true,
+      "detail": "did=11010 detailRows=2 in_list=True upd=True del=True gone=True"
+    },
+    {
+      "item": "qtrk 新增/查看/列表/编辑/删除",
+      "pass": true,
+      "detail": "did=11011 detailRows=2 in_list=True upd=True del=True gone=True"
+    },
+    {
+      "item": "dbd 新增/查看/列表/编辑/删除",
+      "pass": true,
+      "detail": "did=11012 detailRows=2 in_list=True upd=True del=True gone=True"
+    },
+    {
+      "item": "模糊搜索命中头部字段值",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "item": "模糊搜索命中明细行字段值(返回整单)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "item": "模糊搜索返回整单 detailCount",
+      "pass": true,
+      "detail": "detailCount=1"
+    },
+    {
+      "item": "admin 保存列偏好并读回一致",
+      "pass": true,
+      "detail": "pref=['编号', '日期', '供应商', '业务员']"
+    },
+    {
+      "item": "user1 列偏好独立(返回默认列)",
+      "pass": true,
+      "detail": "user1_pref=['编号', '日期', '供应商', '部门', '业务员', '采购方式', '结算方式', '审核']"
+    },
+    {
+      "item": "user1 有权限 docType meta → 200",
+      "pass": true,
+      "detail": "http=200"
+    }
+  ]
+}

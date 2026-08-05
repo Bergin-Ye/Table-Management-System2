@@ -44,6 +44,10 @@
             <el-icon style="margin-right: 4px"><Setting /></el-icon>列设置
           </el-button>
 
+          <el-button type="danger" plain :disabled="!selectedRows.length" :loading="deleting" @click="batchDelete">
+            <el-icon style="margin-right: 4px"><Delete /></el-icon>批量删除
+          </el-button>
+
           <el-button type="primary" @click="addDoc">
             <el-icon style="margin-right: 4px"><Plus /></el-icon>新增单据
           </el-button>
@@ -60,7 +64,10 @@
           row-key="id"
           empty-text="暂无数据，点击右上角“新增单据”创建"
           :header-cell-style="headerStyle"
+          @selection-change="onSelectionChange"
         >
+          <el-table-column type="selection" width="44" align="center" />
+
           <el-table-column
             v-for="f in headCols"
             :key="f.key"
@@ -83,10 +90,13 @@
             <template #default="{ row }">{{ fmtTime(row.updatedAt) }}</template>
           </el-table-column>
 
-          <el-table-column label="操作" width="120" align="center" fixed="right">
+          <el-table-column label="操作" width="180" align="center" fixed="right" class-name="op-col">
             <template #default="{ row }">
-              <el-button link type="primary" size="small" @click="editDoc(row)">编辑</el-button>
-              <el-button link type="danger" size="small" @click="removeDoc(row)">删除</el-button>
+              <div class="op-btns">
+                <el-button link type="primary" size="small" @click="copyDoc(row)">复制</el-button>
+                <el-button link type="primary" size="small" @click="editDoc(row)">编辑</el-button>
+                <el-button link type="danger" size="small" @click="removeDoc(row)">删除</el-button>
+              </div>
             </template>
           </el-table-column>
         </el-table>
@@ -116,6 +126,7 @@
       :doc-type="docType"
       :meta="meta"
       :doc="editingDoc"
+      :copying="copying"
       @saved="onSaved"
     />
 
@@ -140,7 +151,7 @@
 <script setup>
 import { ref, computed, watch, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { Search, Upload, Download, Setting, Plus } from '@element-plus/icons-vue'
+import { Search, Upload, Download, Setting, Plus, Delete } from '@element-plus/icons-vue'
 import {
   getMeta,
   getPref,
@@ -169,9 +180,12 @@ const size = ref(20)
 const keyword = ref('')
 const loading = ref(false)
 const exporting = ref(false)
+const deleting = ref(false)
+const selectedRows = ref([])
 
 const editVisible = ref(false)
 const editingDoc = ref(null)
+const copying = ref(false)
 const colVisible = ref(false)
 const importVisible = ref(false)
 const importResult = ref({ totalRows: 0, successDocs: 0, failRows: [] })
@@ -254,6 +268,7 @@ function onSizeChange() {
 
 function addDoc() {
   editingDoc.value = null
+  copying.value = false
   editVisible.value = true
 }
 
@@ -262,9 +277,59 @@ async function editDoc(row) {
     const detail = await getDocDetail(props.docType, row.id)
     // 详情接口返回 {head, details}，不含 id，这里补上列表行的 id
     editingDoc.value = { ...detail, id: row.id }
+    copying.value = false
     editVisible.value = true
   } catch (e) {
     // 拦截器已提示
+  }
+}
+
+// 复制：拉取当前行详情 → 以「新增」模式打开弹窗并回填（编号留空引导填新号）
+async function copyDoc(row) {
+  try {
+    const detail = await getDocDetail(props.docType, row.id)
+    editingDoc.value = { head: detail.head, details: detail.details }
+    copying.value = true
+    editVisible.value = true
+  } catch (e) {
+    // 拦截器已提示
+  }
+}
+
+function onSelectionChange(rows) {
+  selectedRows.value = rows
+}
+
+// 批量删除：逐条调用删除接口，统计成功/失败
+async function batchDelete() {
+  if (!selectedRows.value.length) return
+  try {
+    await ElMessageBox.confirm(
+      `确定删除选中的 ${selectedRows.value.length} 张单据吗？删除后不可恢复。`,
+      '批量删除确认',
+      { confirmButtonText: '删除', cancelButtonText: '取消', type: 'warning' }
+    )
+  } catch (e) {
+    return
+  }
+  deleting.value = true
+  try {
+    let ok = 0
+    for (const row of selectedRows.value) {
+      try {
+        await deleteDoc(props.docType, row.id)
+        ok++
+      } catch (e) {
+        // 单条失败不中断，继续删其余
+      }
+    }
+    const fail = selectedRows.value.length - ok
+    ElMessage.success(`已删除 ${ok} 张${fail ? `，失败 ${fail} 张` : ''}`)
+    if (list.value.length === selectedRows.value.length && page.value > 1) page.value -= 1
+    selectedRows.value = []
+    loadList()
+  } finally {
+    deleting.value = false
   }
 }
 
@@ -445,6 +510,17 @@ onMounted(() => init())
     font-weight: 600;
     color: $color-primary;
     background: rgba(10, 132, 255, 0.1);
+  }
+
+  .op-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+
+    :deep(.el-button + .el-button) {
+      margin-left: 2px;
+    }
   }
 
   .pager {

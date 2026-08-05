@@ -120,8 +120,9 @@ const props = defineProps({
   modelValue: { type: Boolean, default: false },
   docType: { type: String, required: true },
   meta: { type: Object, required: true },
-  // null 表示新增；编辑时传 { id, head:{}, details:[] }
+  // null 表示新增；编辑时传 { id, head:{}, details:[] }；复制时传 { head:{}, details:[] } + copying=true
   doc: { type: Object, default: null },
+  copying: { type: Boolean, default: false },
 })
 const emit = defineEmits(['update:modelValue', 'saved'])
 
@@ -129,8 +130,11 @@ const headForm = ref({})
 const details = ref([])
 const saving = ref(false)
 
-const isEdit = computed(() => !!props.doc)
-const dialogTitle = computed(() => `${isEdit.value ? '编辑' : '新增'}${props.meta?.name || ''}`)
+const isEdit = computed(() => !!props.doc && !props.copying)
+const dialogTitle = computed(() => {
+  if (props.copying) return `复制新增${props.meta?.name || ''}`
+  return `${isEdit.value ? '编辑' : '新增'}${props.meta?.name || ''}`
+})
 
 const today = () => {
   const d = new Date()
@@ -192,11 +196,18 @@ function openForEdit() {
   numberRows()
 }
 
+// 复制：预填当前行全部信息，但清空「编号」引导填新号（编号唯一）
+function openForCopy() {
+  openForEdit()
+  if ('编号' in headForm.value) headForm.value['编号'] = ''
+}
+
 watch(
   () => props.modelValue,
   (v) => {
     if (!v) return
-    if (props.doc) openForEdit()
+    if (props.copying) openForCopy()
+    else if (props.doc) openForEdit()
     else openForCreate()
   }
 )

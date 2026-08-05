@@ -1,0 +1,112 @@
+{
+  "doc_type": "cgsq",
+  "steps": {
+    "generate": {
+      "file": "E:\\code\\管理系统\\acceptance-test\\artifacts\\cgsq_fake.xlsx",
+      "data_rows": 14,
+      "success_rows": 12,
+      "expect_docs": 10,
+      "fail_expect": [
+        "数量格式错误",
+        "日期不能为空"
+      ]
+    },
+    "import": {
+      "code": 0,
+      "message": "ok",
+      "data": {
+        "totalRows": 14,
+        "successDocs": 10,
+        "failRows": [
+          {
+            "rowNo": 14,
+            "reason": "数量格式错误"
+          },
+          {
+            "rowNo": 15,
+            "reason": "日期不能为空"
+          }
+        ]
+      }
+    },
+    "verify_db": {
+      "pass": true,
+      "failures": []
+    },
+    "export": {
+      "path": "E:\\code\\管理系统\\acceptance-test\\artifacts\\cgsq_export.xlsx",
+      "content_disposition": "attachment; filename*=UTF-8''%E9%87%87%E8%B4%AD%E7%94%B3%E8%AF%B7_%E5%AF%BC%E5%87%BA_20260804.xlsx"
+    },
+    "compare_orig": {
+      "match": true,
+      "diffs": [],
+      "stats": {
+        "orig_rows": 12,
+        "export_rows": 12,
+        "cells_checked": 492,
+        "expected_auto_imp_diff": 1,
+        "unexpected_diffs": 0
+      }
+    },
+    "cleanup_before_reimport": {
+      "deleted": 10,
+      "results": [
+        {
+          "code": 0,
+          "message": "ok"
+        },
+        {
+          "code": 0,
+          "message": "ok"
+        },
+        {
+          "code": 0,
+          "message": "ok"
+        },
+        {
+          "code": 0,
+          "message": "ok"
+        },
+        {
+          "code": 0,
+          "message": "ok"
+        },
+        {
+          "code": 0,
+          "message": "ok"
+        },
+        {
+          "code": 0,
+          "message": "ok"
+        },
+        {
+          "code": 0,
+          "message": "ok"
+        },
+        {
+          "code": 0,
+          "message": "ok"
+        },
+        {
+          "code": 0,
+          "message": "ok"
+        }
+      ]
+    },
+    "reimport": {
+      "code": 0,
+      "message": "ok",
+      "data": {
+        "totalRows": 12,
+        "successDocs": 10,
+        "failRows": []
+      }
+    },
+    "verify_after_reimport": {
+      "pass": true,
+      "failures": []
+    }
+  },
+  "pre_clean_deleted": 10,
+  "baseline_total": 0
+}

@@ -1,0 +1,242 @@
+[
+  {
+    "doc_type": "cgdd",
+    "import_success": 10,
+    "import_fail": [
+      {
+        "rowNo": 14,
+        "reason": "数量格式错误"
+      },
+      {
+        "rowNo": 15,
+        "reason": "日期不能为空"
+      }
+    ],
+    "verify_db_pass": true,
+    "compare_match": true,
+    "compare_stats": {
+      "orig_rows": 12,
+      "export_rows": 12,
+      "cells_checked": 1020,
+      "expected_auto_imp_diff": 1,
+      "unexpected_diffs": 0
+    },
+    "reimport_success": 10,
+    "verify_after_reimport_pass": true,
+    "verify_failures_head": []
+  },
+  {
+    "doc_type": "cgsq",
+    "import_success": 10,
+    "import_fail": [
+      {
+        "rowNo": 14,
+        "reason": "数量格式错误"
+      },
+      {
+        "rowNo": 15,
+        "reason": "日期不能为空"
+      }
+    ],
+    "verify_db_pass": true,
+    "compare_match": true,
+    "compare_stats": {
+      "orig_rows": 12,
+      "export_rows": 12,
+      "cells_checked": 492,
+      "expected_auto_imp_diff": 1,
+      "unexpected_diffs": 0
+    },
+    "reimport_success": 10,
+    "verify_after_reimport_pass": true,
+    "verify_failures_head": []
+  },
+  {
+    "doc_type": "xsdd",
+    "import_success": 10,
+    "import_fail": [
+      {
+        "rowNo": 14,
+        "reason": "数量格式错误"
+      },
+      {
+        "rowNo": 15,
+        "reason": "日期不能为空"
+      }
+    ],
+    "verify_db_pass": true,
+    "compare_match": true,
+    "compare_stats": {
+      "orig_rows": 12,
+      "export_rows": 12,
+      "cells_checked": 1332,
+      "expected_auto_imp_diff": 1,
+      "unexpected_diffs": 0
+    },
+    "reimport_success": 10,
+    "verify_after_reimport_pass": true,
+    "verify_failures_head": []
+  },
+  {
+    "doc_type": "xsck",
+    "import_success": 11,
+    "import_fail": [
+      {
+        "rowNo": 15,
+        "reason": "日期不能为空"
+      }
+    ],
+    "verify_db_pass": true,
+    "compare_match": true,
+    "compare_stats": {
+      "orig_rows": 13,
+      "export_rows": 13,
+      "cells_checked": 923,
+      "expected_auto_imp_diff": 1,
+      "unexpected_diffs": 0
+    },
+    "reimport_success": 11,
+    "verify_after_reimport_pass": true,
+    "verify_failures_head": []
+  },
+  {
+    "doc_type": "wgrk",
+    "import_success": 11,
+    "import_fail": [
+      {
+        "rowNo": 15,
+        "reason": "日期不能为空"
+      }
+    ],
+    "verify_db_pass": true,
+    "compare_match": true,
+    "compare_stats": {
+      "orig_rows": 13,
+      "export_rows": 13,
+      "cells_checked": 754,
+      "expected_auto_imp_diff": 1,
+      "unexpected_diffs": 0
+    },
+    "reimport_success": 11,
+    "verify_after_reimport_pass": true,
+    "verify_failures_head": []
+  },
+  {
+    "doc_type": "scld",
+    "import_success": 11,
+    "import_fail": [
+      {
+        "rowNo": 15,
+        "reason": "日期不能为空"
+      }
+    ],
+    "verify_db_pass": true,
+    "compare_match": true,
+    "compare_stats": {
+      "orig_rows": 13,
+      "export_rows": 13,
+      "cells_checked": 676,
+      "expected_auto_imp_diff": 1,
+      "unexpected_diffs": 0
+    },
+    "reimport_success": 11,
+    "verify_after_reimport_pass": true,
+    "verify_failures_head": []
+  },
+  {
+    "doc_type": "cprk",
+    "import_success": 11,
+    "import_fail": [
+      {
+        "rowNo": 15,
+        "reason": "日期不能为空"
+      }
+    ],
+    "verify_db_pass": true,
+    "compare_match": true,
+    "compare_stats": {
+      "orig_rows": 13,
+      "export_rows": 13,
+      "cells_checked": 533,
+      "expected_auto_imp_diff": 1,
+      "unexpected_diffs": 0
+    },
+    "reimport_success": 11,
+    "verify_after_reimport_pass": true,
+    "verify_failures_head": []
+  },
+  {
+    "doc_type": "qtck",
+    "import_success": 10,
+    "import_fail": [
+      {
+        "rowNo": 14,
+        "reason": "数量格式错误"
+      },
+      {
+        "rowNo": 15,
+        "reason": "日期不能为空"
+      }
+    ],
+    "verify_db_pass": true,
+    "compare_match": true,
+    "compare_stats": {
+      "orig_rows": 12,
+      "export_rows": 12,
+      "cells_checked": 588,
+      "expected_auto_imp_diff": 1,
+      "unexpected_diffs": 0
+    },
+    "reimport_success": 10,
+    "verify_after_reimport_pass": true,
+    "verify_failures_head": []
+  },
+  {
+    "doc_type": "qtrk",
+    "import_success": 11,
+    "import_fail": [
+      {
+        "rowNo": 15,
+        "reason": "日期不能为空"
+      }
+    ],
+    "verify_db_pass": true,
+    "compare_match": true,
+    "compare_stats": {
+      "orig_rows": 13,
+      "export_rows": 13,
+      "cells_checked": 637,
+      "expected_auto_imp_diff": 1,
+      "unexpected_diffs": 0
+    },
+    "reimport_success": 11,
+    "verify_after_reimport_pass": true,
+    "verify_failures_head": []
+  },
+  {
+    "doc_type": "dbd",
+    "import_success": 10,
+    "import_fail": [
+      {
+        "rowNo": 14,
+        "reason": "数量格式错误"
+      },
+      {
+        "rowNo": 15,
+        "reason": "日期不能为空"
+      }
+    ],
+    "verify_db_pass": true,
+    "compare_match": true,
+    "compare_stats": {
+      "orig_rows": 12,
+      "export_rows": 12,
+      "cells_checked": 708,
+      "expected_auto_imp_diff": 1,
+      "unexpected_diffs": 0
+    },
+    "reimport_success": 10,
+    "verify_after_reimport_pass": true,
+    "verify_failures_head": []
+  }
+]

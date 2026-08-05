@@ -9,8 +9,15 @@ target/
 .agents/
 .idea/
 .vscode/
+.claude/
 
-# 其他
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 临时/本地文件
+backend/cp.txt
 *.log
 .DS_Store
 *.iml
+新建文本文档.txt

@@ -1,0 +1,42 @@
+[
+  {
+    "item": "空Excel(仅表头) 返回0行0成功",
+    "pass": true,
+    "detail": "{\"code\": 0, \"message\": \"ok\", \"data\": {\"totalRows\": 0, \"successDocs\": 0, \"failRows\": []}}"
+  },
+  {
+    "item": "缺编号列→自动回退+缺日期失败(无日期列全部失败)",
+    "pass": true,
+    "detail": "{\"code\": 0, \"message\": \"ok\", \"data\": {\"totalRows\": 2, \"successDocs\": 0, \"failRows\": [{\"rowNo\": 2, \"reason\": \"日期不能为空\"}, {\"rowNo\": 3, \"reason\": \"日期不能为空\"}]}}"
+  },
+  {
+    "item": "缺编号列含日期→自动IMP编号成单",
+    "pass": true,
+    "detail": "{\"code\": 0, \"message\": \"ok\", \"data\": {\"totalRows\": 2, \"successDocs\": 2, \"failRows\": []}}"
+  },
+  {
+    "item": "编号重复整组跳过并报编号已存在",
+    "pass": true,
+    "detail": "{\"code\": 0, \"message\": \"ok\", \"data\": {\"totalRows\": 2, \"successDocs\": 0, \"failRows\": [{\"rowNo\": 2, \"reason\": \"编号已存在\"}]}}"
+  },
+  {
+    "item": "超大文件5000行导入成功(耗时9.4s)",
+    "pass": true,
+    "detail": "{\"code\": 0, \"message\": \"ok\", \"data\": {\"totalRows\": 5000, \"successDocs\": 5000, \"failRows\": []}}"
+  },
+  {
+    "item": "大文件后模糊搜索可命中",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "item": "非Excel文件导入返回业务错误",
+    "pass": true,
+    "detail": "{\"code\": 1, \"message\": \"只支持 .xls/.xlsx 的 Excel 文件\"}"
+  },
+  {
+    "item": "不存在docType的meta返回404",
+    "pass": true,
+    "detail": "http=404"
+  }
+]
