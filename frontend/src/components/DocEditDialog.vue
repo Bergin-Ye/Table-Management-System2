@@ -90,10 +90,12 @@
                 />
               </template>
             </el-table-column>
-            <el-table-column label="操作" width="96" align="center" fixed="right">
+            <el-table-column label="操作" width="120" align="center" fixed="right">
               <template #default="{ $index }">
-                <el-button link type="primary" size="small" @click="copyRow($index)">复制</el-button>
-                <el-button link type="danger" size="small" @click="removeRow($index)">删除</el-button>
+                <div class="row-ops">
+                  <el-button link type="primary" size="small" @click="copyRow($index)">复制</el-button>
+                  <el-button link type="danger" size="small" @click="removeRow($index)">删除</el-button>
+                </div>
               </template>
             </el-table-column>
           </el-table>
@@ -352,6 +354,18 @@ function close() {
   overflow: hidden;
   border: 1px solid $color-border;
   background: rgba(255, 255, 255, 0.7);
+}
+
+// 明细行操作按钮：flex 强制同一行，避免窄列内折行
+.row-ops {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+
+  :deep(.el-button + .el-button) {
+    margin-left: 6px;
+  }
 }
 
 .dialog-footer {
