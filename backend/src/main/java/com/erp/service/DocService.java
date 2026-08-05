@@ -58,6 +58,7 @@ public class DocService {
         if (!headPage.getRecords().isEmpty()) {
             List<Long> ids = headPage.getRecords().stream().map(DocHead::getId).toList();
             Map<Long, Long> counts = countDetails(ids);
+            Map<Long, Map<String, Object>> firsts = firstDetails(ids);
             for (DocHead h : headPage.getRecords()) {
                 DocListVO vo = new DocListVO();
                 vo.setId(h.getId());
@@ -66,6 +67,7 @@ public class DocService {
                 vo.setHeadData(parseMap(h.getHeadData()));
                 vo.setUpdatedAt(h.getUpdatedAt());
                 vo.setDetailCount(counts.getOrDefault(h.getId(), 0L));
+                vo.setFirstDetail(firsts.getOrDefault(h.getId(), new HashMap<>()));
                 vos.add(vo);
             }
         }
@@ -91,6 +93,30 @@ public class DocService {
             if (hid instanceof Number hn && cnt instanceof Number cn) {
                 result.put(hn.longValue(), cn.longValue());
             }
+        }
+        return result;
+    }
+
+    /** 每个 head_id 取第一条明细（row_no 升序第一行）的 detail_data，解析为 Map */
+    private Map<Long, Map<String, Object>> firstDetails(List<Long> headIds) {
+        Map<Long, Map<String, Object>> result = new HashMap<>();
+        if (headIds.isEmpty()) {
+            return result;
+        }
+        List<Map<String, Object>> rows = docDetailMapper.selectMaps(
+                new QueryWrapper<DocDetail>()
+                        .select("head_id", "detail_data")
+                        .in("head_id", headIds)
+                        .orderByAsc("row_no")
+                        .orderByAsc("id"));
+        Set<Long> seen = new HashSet<>();
+        for (Map<String, Object> row : rows) {
+            Object hid = row.get("head_id");
+            if (!(hid instanceof Number hn) || !seen.add(hn.longValue())) {
+                continue; // 非 head_id 行，或该单据的第一条已取过
+            }
+            Object json = row.get("detail_data");
+            result.put(hn.longValue(), parseMap(json == null ? null : json.toString()));
         }
         return result;
     }

@@ -13,4 +13,6 @@ public class DocListVO {
     private Map<String, Object> headData;
     private LocalDateTime updatedAt;
     private Long detailCount;
+    /** 首条明细行（row_no 升序第一行）的字段 KV，供列表展示明细字段列 */
+    private Map<String, Object> firstDetail;
 }

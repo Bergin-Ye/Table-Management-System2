@@ -69,7 +69,7 @@
           <el-table-column type="selection" width="44" align="center" />
 
           <el-table-column
-            v-for="f in headCols"
+            v-for="f in displayCols"
             :key="f.key"
             :label="f.label"
             min-width="130"
@@ -193,15 +193,29 @@ const uploadRef = ref(null)
 
 const headerStyle = () => ({ background: 'rgba(245,246,250,0.5)', color: '#6e6e73' })
 
-// 可见头部列（按配置顺序 + 用户偏好）
-const headCols = computed(() => {
+// 可见列（按配置顺序 + 用户偏好）：先在头部字段找，找不到再去明细字段找，重名以头部为准
+const displayCols = computed(() => {
   if (!meta.value) return []
+  const headFields = meta.value.headFields || []
+  const headKeys = new Set(headFields.map((f) => f.key))
+  const detailFields = (meta.value.detailFields || []).filter((f) => !headKeys.has(f.key))
   return columns.value
-    .map((key) => meta.value.headFields.find((f) => f.key === key))
+    .map((key) => {
+      const hf = headFields.find((f) => f.key === key)
+      if (hf) return { ...hf, _section: 'head' }
+      const df = detailFields.find((f) => f.key === key)
+      if (df) return { ...df, _section: 'detail' }
+      return null
+    })
     .filter(Boolean)
 })
 
 function cellText(field, row) {
+  // 明细字段列：显示该单据第一条明细的值
+  if (field._section === 'detail') {
+    const detail = row.firstDetail || {}
+    return formatCell(field, detail[field.key])
+  }
   const head = row.headData || {}
   let val = head[field.key]
   if ((val === undefined || val === null) && field.key === '编号') val = row.bizNo
